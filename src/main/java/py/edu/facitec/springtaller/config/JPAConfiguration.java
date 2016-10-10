@@ -43,7 +43,7 @@ public class JPAConfiguration {
 	@Bean
 	public DataSource dataSource(){  
 	DriverManagerDataSource dataSource =  new DriverManagerDataSource();  
-	dataSource.setDriverClassName("com.postgresql.jdbc.Driver");  
+	dataSource.setDriverClassName("org.postgresql.Driver");  
 	dataSource.setUrl(  "jdbc:postgresql://localhost:5432/springtaller_bd");  
 	dataSource.setUsername( "postgres" );  
 	dataSource.setPassword( "12345" );  

@@ -15,7 +15,10 @@ public class Departamento {
 	@GeneratedValue
 	private long id;
 	private String descripcion;
-	private List<Usuario> ListaUsuarios;
+	
+	
+	
+	//private List<Usuario> ListaUsuarios;
 	
 	@OneToOne(mappedBy="departamento")
 	private Gerente gerente;
@@ -23,11 +26,6 @@ public class Departamento {
 	@OneToMany(mappedBy="departamento")
 	private List<Usuario> usuarios;
 	
-	@Override
-	public String toString() {
-		return "Departamento [id=" + id + ", descripcion=" + descripcion + ", ListaUsuarios=" + ListaUsuarios + "]";
-	}
-
 
 
 	public long getId() {
@@ -54,15 +52,7 @@ public class Departamento {
 
 
 
-	public List<Usuario> getListaUsuarios() {
-		return ListaUsuarios;
-	}
 
-
-
-	public void setListaUsuarios(List<Usuario> listaUsuarios) {
-		ListaUsuarios = listaUsuarios;
-	}
 	
 	
 		

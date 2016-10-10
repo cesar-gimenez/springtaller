@@ -38,7 +38,7 @@ public abstract class DAOGenerico<T> {
 	
 	public List<T> buscarTodo(){
 		
-		return getEntityManager().createNamedQuery("from " + entityClass.getSimpleName(),entityClass).getResultList();
+		return getEntityManager().createQuery("from " + entityClass.getSimpleName(),entityClass).getResultList();
 	}
 	
 	public void guardar(T entity, Object id){
