@@ -5,8 +5,6 @@ package py.edu.facitec.springtaller.config;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.Marshaller;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.format.datetime.DateFormatter;
@@ -21,10 +19,15 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.XmlViewResolver;
-
+import py.edu.facitec.springtaller.controller.ClienteController;
 import py.edu.facitec.springtaller.controller.HomeController;
+import py.edu.facitec.springtaller.controller.PedidoController;
+import py.edu.facitec.springtaller.controller.ProductoController;
+import py.edu.facitec.springtaller.controller.UsuarioController;
 import py.edu.facitec.springtaller.dao.ClienteDAO;
+import py.edu.facitec.springtaller.dao.PedidoDAO;
+import py.edu.facitec.springtaller.dao.ProductoDAO;
+import py.edu.facitec.springtaller.dao.UsuarioDAO;
 import py.edu.facitec.springtaller.model.Producto;
 import py.edu.facitec.springtaller.resolver.CustomXMLViewResolver;
 import py.edu.facitec.springtaller.resolver.JsonViewResolver;
@@ -33,7 +36,10 @@ import py.edu.facitec.springtaller.resolver.JsonViewResolver;
 @EnableWebMvc
 
 //Carga las clases necesarias para iniciar la aplicacion
-@ComponentScan(basePackageClasses={HomeController.class, ClienteDAO.class})
+@ComponentScan(basePackageClasses={HomeController.class, ClienteDAO.class, PedidoDAO.class,
+ProductoDAO.class, UsuarioDAO.class, ClienteController.class, PedidoController.class,
+ProductoController.class, UsuarioController.class
+})
 
 //Gestiona un nuevo componente de la aplicacion
 public class AppWebConfiguration extends WebMvcConfigurerAdapter{

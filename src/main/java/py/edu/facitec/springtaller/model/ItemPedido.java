@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class ItemPedido {
 	
@@ -14,6 +16,8 @@ public class ItemPedido {
 	private int cantidadProducto;
 	private double subTotal;
 	
+	//para una relacion bidireccional
+	@JsonBackReference
 	@ManyToOne
 	private Pedido pedido;	
 	

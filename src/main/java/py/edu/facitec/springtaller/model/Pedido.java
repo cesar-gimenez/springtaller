@@ -3,17 +3,20 @@ package py.edu.facitec.springtaller.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import py.edu.facitec.springtaller.model.general.General;
 @Entity
-public class Pedido {
+public class Pedido extends General{
 	
-	@Id
-	@GeneratedValue
-	private long id;
+
+	//aplicacion de restricciones
+	@Column(length=100, nullable=false, unique=true)
 	private Date fechaToma;
 	private Date fechaEntrega;
 	private double total;
@@ -24,6 +27,8 @@ public class Pedido {
 	@ManyToOne
 	private Usuario usuario;
 	
+	//lista que quiero visualizar
+	@JsonManagedReference
 	@OneToMany(mappedBy="pedido")
 	private List<ItemPedido> itempedidos;
 	
@@ -31,20 +36,12 @@ public class Pedido {
 	
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", fechaToma=" + fechaToma + ", fechaEntrega=" + fechaEntrega + ", total="
+		return "Pedido [fechaToma=" + fechaToma + ", fechaEntrega=" + fechaEntrega + ", total="
 				+ total + "]";
 	}
 
 
-	public long getId() {
-		return id;
-	}
-
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	
 
 	public Date getFechaToma() {
 		return fechaToma;

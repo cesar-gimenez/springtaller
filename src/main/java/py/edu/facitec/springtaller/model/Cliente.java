@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Cliente {
 	
@@ -16,6 +18,8 @@ public class Cliente {
 	private String nombre;
 	private String correo;
 	
+	//anotacion aplicada para ignorar el atributo de json
+	@JsonIgnore
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos;
 	
